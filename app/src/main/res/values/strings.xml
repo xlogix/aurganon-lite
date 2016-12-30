@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Aurganon \'16</string>
+    <string name="app_main_activity">#PowerUp</string>
+
+    <!--AboutActivity-->
+    <string name="about_developer">About Developer</string>
+    <string name="about_description">This application is developed by Project Club. Add more..</string>
+
+    <!--EasyPermissions-->
+    <string name="rationale_storage">This app needs access to storage to upload files for Online events.</string>
+    <string name="setting">Settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="rationale_ask_again">This app may not work correctly without the requested permissions. Open the app settings screen to modify app permissions.</string>
+    <string name="title_settings_dialog">Permissions Required</string>
+    <string name="settings_dialog_canceled">Settings dialog canceled</string>
+    <string name="returned_from_app_settings_to_activity">Returned from app settings to MainActivity</string>
+</resources>
