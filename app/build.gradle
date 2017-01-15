@@ -8,22 +8,24 @@ android {
         applicationId "com.aurganonlite.android"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 7
-        versionName "1.7 RELEASE"
+        versionCode 8
+        versionName "1.8"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         debug {
             minifyEnabled false
             shrinkResources false
+            versionNameSuffix '-DEBUG'
         }
         release {
             minifyEnabled true
             shrinkResources true
+            versionNameSuffix '-RELEASE'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
     // `return void` removes the lint error: `Not all execution paths return a value`.
     return void
 }
@@ -36,7 +38,7 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
-    compile 'pub.devrel:easypermissions:0.2.0'
+    compile 'pub.devrel:easypermissions:0.2.1'
 
     // Firebase
     compile 'com.google.firebase:firebase-core:10.0.1'

@@ -6,3 +6,15 @@
 .DS_Store
 /build
 /captures
+
+# Android
+google-services.json
+
+# Keystore files
+*.jks
+
+# Windows thumbnail db
+Thumbs.db
+
+# OSX files
+.DS_Store
