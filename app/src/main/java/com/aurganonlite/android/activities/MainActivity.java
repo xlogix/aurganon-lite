@@ -31,8 +31,8 @@ import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public class MainActivity extends Activity implements EasyPermissions.PermissionCallbacks {
-
     private static final String TAG = MainActivity.class.getSimpleName();
+
     private static final String URL = "http://www.aurganon.com";
     private static final int RC_STORAGE_PERM = 100;
     private static final int RC_SETTINGS_SCREEN = 125;
