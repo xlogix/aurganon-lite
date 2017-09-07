@@ -18,5 +18,10 @@ It's also on Google Play:
 #### Manifest Settings
 
 ```xml
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <!-- Normal permissions, access automatically granted to app -->
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+  <!-- Runtime permissions -->
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
