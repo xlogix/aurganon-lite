@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Aurganon \'16</string>
-    <string name="app_main_activity">#PowerUp</string>
+    <string name="app_name">Aurganon \'17</string>
+    <string name="app_main_activity">#Lumos</string>
 
     <!--AboutActivity-->
     <string name="about_developer">About Developer</string>
-    <string name="about_description">This application is developed by Project Club. Add more..</string>
+    <string name="about_description">This application is developed by Project Club.</string>
 
     <!--EasyPermissions-->
     <string name="rationale_storage">This app needs access to storage to upload files for Online events.</string>
