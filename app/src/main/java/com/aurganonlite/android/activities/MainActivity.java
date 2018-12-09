@@ -15,25 +15,20 @@ import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
-import android.webkit.CookieManager;
-import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
+import android.webkit.*;
 import android.widget.Toast;
-
 import com.aurganonlite.android.R;
 import com.aurganonlite.android.helpers.MyAppWebViewClient;
-
-import java.util.List;
-
 import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
+
+import java.util.List;
 
 public class MainActivity extends Activity implements EasyPermissions.PermissionCallbacks {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private static final String URL = "http://www.aurganon.com";
+    // private static final String URL = "https://www.fnplus.tech";
     private static final int RC_STORAGE_PERM = 100;
     private static final int RC_SETTINGS_SCREEN = 125;
     private static final int FILE_CHOOSER_RESULT_CODE = 1;
@@ -71,7 +66,7 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
             mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         } else if (Build.VERSION.SDK_INT > 19) {
             mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-        } else if (Build.VERSION.SDK_INT >= 11 && Build.VERSION.SDK_INT <= 19) {
+        } else if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 19) {
             mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
             mWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
         }
@@ -83,18 +78,15 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
         mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         mWebView.setScrollbarFadingEnabled(true);
 
-        // Enable JavaScript
+        // Enable JavaScript (May have to disable due to Google Play policies)
         mWebView.getSettings().setJavaScriptEnabled(true);
         // Enable FileUpload
         mWebView.getSettings().setAllowFileAccess(true);
         mWebView.getSettings().setAllowFileAccessFromFileURLs(true);
-        // Enable Database
-        mWebView.getSettings().setDatabaseEnabled(true);
         // Other Settings
         mWebView.getSettings().setLoadsImagesAutomatically(true);
         mWebView.getSettings().setAppCacheEnabled(true);
         mWebView.getSettings().setSupportZoom(true);
-        mWebView.getSettings().setDomStorageEnabled(true);
         mWebView.getSettings().setBuiltInZoomControls(false);
         mWebView.getSettings().setSupportMultipleWindows(true);
 
@@ -273,19 +265,12 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
-        // Some permissions have been denied
         Log.d(TAG, "onPermissionsDenied:" + requestCode + ":" + perms.size());
 
         // (Optional) Check whether the user denied any permissions and checked "NEVER ASK AGAIN."
         // This will display a dialog directing them to enable the permission in app settings.
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            new AppSettingsDialog.Builder(this, getString(R.string.rationale_ask_again))
-                    .setTitle(getString(R.string.title_settings_dialog))
-                    .setPositiveButton(getString(R.string.setting))
-                    .setNegativeButton(getString(R.string.cancel), null /* click listener */)
-                    .setRequestCode(RC_SETTINGS_SCREEN)
-                    .build()
-                    .show();
+            new AppSettingsDialog.Builder(this).build().show();
         }
     }
 }

@@ -16,4 +16,11 @@
 #   public *;
 #}
 
--keep class !android.support.v7.internal.view.menu.**,android.support.** {*;}
+-optimizations !field/removal/writeonly,!field/marking/private,!class/merging/*,!code/allocation/variable
+
+# Basic proguard configuration to support all the devices
+-keep class android.support.v4.** {  *; }
+-keep interface android.support.v7.** { *; }
+-keep class android.support.v7.** { *; }
+-keep interface android.support.v7.** { *; }
+-keep class !android.support.v7.internal.view.menu.** {*;}
